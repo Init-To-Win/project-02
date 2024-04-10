@@ -1,2 +1,3 @@
-# project-02
-Initial Description - to be edited later
+# Spin Me 'Round
+
+A marketplace for new and used records.
