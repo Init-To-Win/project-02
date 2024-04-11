@@ -1,15 +1,12 @@
 const router = require("express").Router();
 
-const artistRoutes = require("./artistRoutes");
-const forSaleRoutes = require("./forSaleRoutes");
-const recordRoutes = require("./recordsRoutes");
-const reviewsRoutes = require("./reviewsRoutes");
-const userRoutes = require("userRoutes");
+const artistRoutes = require("./artists/artistRoutes");
+const userRoutes = require("./users/userRoutes");
 
+//http://localhost:3001/api/artists
 router.use("/artists", artistRoutes);
-router.use("/forSale", forSaleRoutes);
-router.use("/records", recordRoutes);
-router.use("/reviews", reviewsRoutes);
+
+//http://localhost:3001/api/users
 router.use("/users", userRoutes);
 
 module.exports = router;
