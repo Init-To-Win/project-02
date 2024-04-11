@@ -28,7 +28,7 @@ Review.init(
       },
     },
     review_content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     stars: {
