@@ -1,0 +1,23 @@
+h1 {
+  font-family: "Pacifico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 225%;
+}
+
+h5,
+p {
+  font-family: "Sedan", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 110%;
+  text-decoration: none;
+}
+
+.card-body {
+  padding: 5%;
+}
+
+#site_description {
+  margin-top: 80px;
+}
