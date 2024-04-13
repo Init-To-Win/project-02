@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: process.env.SECRECT,
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 24 * 60 * 60 * 1000,
     //do we need to have the sid
@@ -31,7 +31,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());
-// app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
