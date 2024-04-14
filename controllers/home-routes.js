@@ -1,32 +1,26 @@
 const router = require("express").Router();
-const { Record } = require("../models");
+const { Record,Artist } = require("../models");
 
 //http://localhost:3001
 router.get("/", async (req, res) => {
   //what do we want displayed on our landing page
   try {
+    let randAmt = 12;
     const dbRecordData = await Record.findAll({
       include: [{ model: Artist, attributes: ["name"] }],
     });
-
-    const records = dbRecordData.map((artist) => artist.get({ plain: true }));
-
-    const index1 = math.floor(math.random() * (records.length - 1));
-    const index2 = math.floor(math.random() * (records.length - 1));
-    const index3 = math.floor(math.random() * (records.length - 1));
-    const index4 = math.floor(math.random() * (records.length - 1));
-    const index5 = math.floor(math.random() * (records.length - 1));
-    const index6 = math.floor(math.random() * (records.length - 1));
-
-    const randomRecords = [
-      records[index1],
-      records[index2],
-      records[index3],
-      records[index4],
-      records[index5],
-      records[index6],
-    ];
-
+    const records = dbRecordData.map((record) => record.get({ plain: true }));
+    const randomRecords = [];
+    const prevIdx = [];
+    // pick randAmt of records but do not display the same record twice
+    // ensures that when asked for last record it is not missed (12 is shown without repeats)
+    for (let i = 0; i < randAmt; i++) {
+      let idx = Math.floor(Math.random() * records.length);
+      if (!prevIdx.includes(idx)) {
+        prevIdx.push(idx);
+        randomRecords.push(records[idx]);
+      } else i--;
+    }
     res.render("homepage", {
       randomRecords,
       loggedIn: req.session.loggedIn,
