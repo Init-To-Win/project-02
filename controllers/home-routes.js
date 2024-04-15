@@ -31,10 +31,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-// //http://localhost:3001/login
-// router.get("/login", (req, res) => {
-//   //direct to login/register page
-// });
+//http://localhost:3001/login
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
 
 // //http://localhost:3001/search
 // router.post("/search", async (req, res) => {
