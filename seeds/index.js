@@ -12,6 +12,7 @@ const seedAll = async () => {
   await seedUsers();
   await seedForSales();
   await seedReviews();
+  console.log("All Seeds Planted!");
   process.exit(0);
 };
 
