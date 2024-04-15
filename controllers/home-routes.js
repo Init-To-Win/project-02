@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { Record,Artist } = require("../models");
+const { Record, Artist } = require("../models");
 
 //http://localhost:3001
 router.get("/", async (req, res) => {
   //what do we want displayed on our landing page
   try {
-    let randAmt = 12;
+    let randAmt = 6;
     const dbRecordData = await Record.findAll({
       include: [{ model: Artist, attributes: ["name"] }],
     });

@@ -2,7 +2,8 @@ h1 {
   font-family: "Pacifico", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 225%;
+  font-size: 200%;
+  text-align: center;
 }
 
 h5,
@@ -12,20 +13,46 @@ p {
   font-style: normal;
   font-size: 110%;
   text-decoration: none;
+  text-align: center;
+  padding: 2rem;
+}
+.site-width {
+  width: 90%;
 }
 
-.card-body {
-  padding: 5%;
+.card {
+  margin: 1rem;
+}
+.description {
+  padding: 0 1rem 0 1rem;
+}
+#description {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: medium;
 }
 
-#site_description {
-  margin-top: 80px;
+.random-records {
+  align-items: center;
+  width: 100%;
 }
 
+.searchbars {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.searchfield {
+  margin-top: 10px;
+}
 .card-height {
   min-height: 150px;
   background: rgb(73, 71, 116);
-  background: linear-gradient(90deg, rgba(73, 71, 116, 1) 0%, rgba(237, 175, 245, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(73, 71, 116, 1) 0%,
+    rgba(237, 175, 245, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 .flex {
   display: flex;
@@ -36,3 +63,20 @@ p {
   text-shadow: 3px 3px black;
 }
 
+@media (min-width: 768px) {
+  .site-width {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .site-width {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-width {
+    width: 60%;
+  }
+}
