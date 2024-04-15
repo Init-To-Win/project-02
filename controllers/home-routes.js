@@ -31,6 +31,24 @@ router.get("/", async (req, res) => {
   }
 });
 
+//http://localhost:3001/addArtist
+router.get("/addArtist", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("addArtist");
+});
+
+//http://localhost:3001/addRecord
+router.get("/addRecord", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("addAlbum");
+});
+
 //http://localhost:3001/login
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
