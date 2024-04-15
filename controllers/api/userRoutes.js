@@ -11,8 +11,10 @@ router.post("/", async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_name = req.body.user_name;
+
+      res.status(200).json(userData);
     });
-    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,9 +30,10 @@ router.post("/login", async (req, res) => {
     });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password. Please try again!" });
+      res.status(400).json({
+        userData,
+        message: "Incorrect username or password. Please try again!",
+      });
       return;
     }
 
@@ -45,9 +48,12 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       res.session.loggedIn = true;
-      res.session.user_name = req.body.user_name;
+      //   res.session.user_name = req.body.user_name;
+
+      res
+        .status(200)
+        .json({ user: userData, message: "You are now logged in!" });
     });
-    res.status(200).json({ user: userData, message: "You are now logged in!" });
   } catch (err) {
     res.status(500).json(err);
   }

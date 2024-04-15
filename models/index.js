@@ -44,4 +44,14 @@ ForSale.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-module.exports = { Artist, ForSale, Record, Review, User };
+User.belongsToMany(Record, {
+  through: { model: UserRecord, foreignKey: "user_id" },
+  as: "user_records",
+});
+
+Record.belongsToMany(User, {
+  through: { model: UserRecord, foreignKey: "record_id" },
+  as: "record_users",
+});
+
+module.exports = { Artist, ForSale, Record, Review, User, UserRecord };
