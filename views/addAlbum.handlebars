@@ -10,13 +10,17 @@
   <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
     <div class="add-album-form p-0 m-0">
       <div class="form-group mb-3 p-0 m-0">
-        <label for="album-add">Album Name:</label>
-        <input class="form-input" type="text" id="add-album" />
+        <label for="add-album-name">Album Name:</label>
+        <input class="form-input" type="text" id="add-album-name" />
+      </div>
+      <div class="form-group mb-3 p-0 m-0">
+        <label for="add-album-year">Album Year:</label>
+        <input class="form-input" type="text" id="add-album-year" />
       </div>
       <select
         class="form-select mb-3"
         style="border-color: black"
-        aria-label="artist-name"
+        aria-label="add-album-artist-name"
       >
         {{! NEED TO FIGURE OUT HOW TO MAKE THE CHOICES DYNAMIC - PULLED FROM ARTIST API }}
         <option selected>Artist Name</option>
@@ -39,7 +43,7 @@
           class="form-control"
           style="border-color: black"
           type="file"
-          id="formFile"
+          id="add-album-image"
         />
       </div>
       <div class="form-group login-form-centered">
