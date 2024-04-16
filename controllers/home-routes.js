@@ -58,6 +58,18 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/artist", (req, res) => {
+  res.render("artist");
+});
+
+router.get("/album", (req, res) => {
+  res.render("album");
+});
+
+router.get("/userpage", (req, res) => {
+  res.render("userpage");
+});
+
 // //http://localhost:3001/search
 // router.post("/search", async (req, res) => {
 //   //page to display search results
