@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Artist } = require("../../../models");
+const { Artist, Record } = require("../../../models");
 
 //http://localhost:3001/api/artists
 
@@ -9,8 +9,23 @@ router.get("/", (req, res) => {
 
 //http://localhost:3001/api/artists/:id
 
-router.get("/:id", (req, res) => {
-  //page for specific artist
+router.get("/:id", async (req, res) => {
+  try {
+    const artistData = await Artist.findByPk(req.params.id, {
+      include: [
+        {
+          model: Record,
+        },
+      ],
+    });
+    if (!artistData) {
+      res.status(404).json({ message: "No artist found with that" });
+      return;
+    }
+    res.status(200).json(artistData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

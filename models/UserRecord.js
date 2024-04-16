@@ -13,11 +13,17 @@ UserRecord.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      references: { model: "user", key: "id" },
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     record_id: {
       type: DataTypes.INTEGER,
-      references: { model: "record", key: "id" },
+      references: {
+        model: "record",
+        key: "id",
+      },
     },
   },
   { sequelize, feezeTableName: true, modelName: "user_record" }

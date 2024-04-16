@@ -35,14 +35,6 @@ User.init(
         len: [6],
       },
     },
-    artist_id: {
-      type: DataTypes.INTEGER,
-      references: { model: "artist", key: "id" },
-    },
-    record_id: {
-      type: DataTypes.INTEGER,
-      references: { model: "record", key: "id" },
-    },
   },
   {
     hooks: {
