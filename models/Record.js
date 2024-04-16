@@ -34,6 +34,7 @@ Record.init(
   {
     sequelize,
     freezeTableName: true,
+    underscored: true,
     modelName: "record",
   }
 );

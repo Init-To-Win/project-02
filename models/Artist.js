@@ -19,6 +19,7 @@ Artist.init(
   {
     sequelize,
     freezeTableName: true,
+    underscored: true,
     modelName: "artist",
   }
 );

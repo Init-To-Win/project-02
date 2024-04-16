@@ -61,4 +61,11 @@ Record.belongsToMany(User, {
   as: "record_users",
 });
 
-module.exports = { Artist, ForSale, Record, Review, User, UserRecord };
+module.exports = {
+  Artist,
+  ForSale,
+  Record,
+  Review,
+  User,
+  UserRecord,
+};
