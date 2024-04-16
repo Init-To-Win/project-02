@@ -22,6 +22,10 @@ Record.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    spotify_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     artist_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
