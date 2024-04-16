@@ -1,8 +1,15 @@
 const router = require("express").Router();
-const { Record } = require("../../models");
+const { Record, Artist } = require("../../../../models");
 
-//http://localhost:3001/api/artist/records
-router.get("/", (req, res) => {
+//http:localhost3001/api/artists/records
+router.get("/", async (req, res) => {
+  try {
+    const recordData = await Record.findAll();
+    console.log(recordData);
+    res.status(200).json(recordData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
   //direct to page with all records
 });
 
