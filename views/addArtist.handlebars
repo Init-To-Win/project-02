@@ -1,24 +1,43 @@
 <div class="site-width mx-auto">
-    <div
-        class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
-        id="description"
-      >
-        <h2>
-          <strong>Add an artist to your collection.</strong>
-        </h2>
+  <div
+    class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
+    id="description"
+  >
+    <h2>
+      <strong>Add an artist to your collection.</strong>
+    </h2>
+  </div>
+  <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
+    <div class="add-artist-form">
+      <div class="form-group mb-3">
+        <label for="artist-add">Artist</label>
+        <input class="form-input" type="text" id="add-artist" />
       </div>
-          <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
-            <div class="add-artist-form">
-              <div class="form-group">
-                <label for="artist-add">Artist</label>
-                <input class="form-input" type="text" id="add-artist" />
-              </div>
-              <div class="form-group login-form-centered">
-                <button class="btn btn-secondary" type="submit" id="add-artist-button">
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script src="./js/login.js"></script>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload an Artist Image:</label>
+        <input
+          class="form-control"
+          style="border-color: black"
+          type="file"
+          id="formFile"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="add-artist-bio" class="form-label"></label>
+        <textarea
+          class="form-control"
+          placeholder="Brief Artist Bio (optional)"
+          style="border-color: black"
+          id="add-artist-bio"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-group login-form-centered">
+        <button class="btn btn-secondary" type="submit" id="add-artist-button">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./js/login.js"></script>

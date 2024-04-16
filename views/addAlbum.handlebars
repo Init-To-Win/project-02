@@ -1,24 +1,53 @@
 <div class="site-width mx-auto">
-    <div
-        class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
-        id="description"
-      >
-        <h2>
-          <strong>Add an album to your collection.</strong>
-        </h2>
+  <div
+    class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
+    id="description"
+  >
+    <h2>
+      <strong>Add an album to your collection.</strong>
+    </h2>
+  </div>
+  <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
+    <div class="add-album-form p-0 m-0">
+      <div class="form-group mb-3 p-0 m-0">
+        <label for="album-add">Album Name:</label>
+        <input class="form-input" type="text" id="add-album" />
       </div>
-          <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
-            <div class="add-album-form">
-              <div class="form-group">
-                  <label for="album-add">Album</label>
-                  <input class="form-input" type="text" id="add-album" />
-              </div>
-              <div class="form-group login-form-centered">
-                <button class="btn btn-secondary" type="submit" id="add-album-button">
-                  Add
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script src="./js/login.js"></script>
+      <select
+        class="form-select mb-3"
+        style="border-color: black"
+        aria-label="artist-name"
+      >
+        {{! NEED TO FIGURE OUT HOW TO MAKE THE CHOICES DYNAMIC - PULLED FROM ARTIST API }}
+        <option selected>Artist Name</option>
+        <option value="1">ABBA</option>
+        <option value="2">Backstreet Boys</option>
+        <option value="3">Beyonce</option>
+        <option value="3">Billy Joel</option>
+        <option value="3">Bowling For Soup</option>
+        <option value="3">Cody Fry</option>
+        <option value="3">d4vd</option>
+        <option value="3">Dido</option>
+        <option value="3">Joan Jett</option>
+        <option value="3">Lizzo</option>
+        <option value="3">Peach Tree Rascals</option>
+        <option value="3">Queen</option>
+      </select>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload an Album Image:</label>
+        <input
+          class="form-control"
+          style="border-color: black"
+          type="file"
+          id="formFile"
+        />
+      </div>
+      <div class="form-group login-form-centered">
+        <button class="btn btn-secondary" type="submit" id="add-album-button">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./js/login.js"></script>
