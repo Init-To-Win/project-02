@@ -1,15 +1,42 @@
 const router = require("express").Router();
-const { Record, UserRecord } = require("../../../../models");
+const { Record, UserRecord, Artist } = require("../../../../models");
 
 //http://localhost:3001/api/artists/records
 router.get("/", async (req, res) => {
   try {
-    const recordData = await Record.findAll();
+    const recordData = await Record.findAll({
+      include: [
+        {
+          model: Artist,
+        },
+      ],
+    });
     res.status(200).json(recordData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
   //direct to page with all records
+});
+
+//http://localhost:3001/api/artists/records/:id
+router.get("/:id", async (req, res) => {
+  try {
+    const recordData = await Record.findByPk(req.params.id, {
+      include: [
+        {
+          model: Artist,
+        },
+      ],
+    });
+    if (!recordData) {
+      res.status(404).json({ message: "No record found with that id!" });
+    }
+    res.status(200).json(recordData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 //http://localhost:3001/api/artists/records

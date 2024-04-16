@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
       ],
     });
     if (!artistData) {
-      res.status(404).json({ message: "No artist found with that" });
+      res.status(404).json({ message: "No artist found with that id!" });
       return;
     }
     res.status(200).json(artistData);
@@ -43,6 +43,7 @@ router.get("/:id", async (req, res) => {
 //http://localhost:3001/api/artists
 router.post("/", async (req, res) => {
   try {
+    console.log("HELLO WORLD");
     const artistCheck = await Artist.findOne({
       where: { name: req.body.name },
     });
@@ -55,6 +56,7 @@ router.post("/", async (req, res) => {
     });
     res.status(200).json(artistData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -65,6 +67,8 @@ router.put("/:id", async (req, res) => {
     const artistData = await Artist.update(
       {
         name: req.body.name,
+        image: req.body.image,
+        bio: req.body.bio,
       },
       {
         where: {
