@@ -35,6 +35,7 @@ ForSale.init(
   {
     sequelize,
     freezeTableName: true,
+    underscored: true,
     modelName: "forSale",
   }
 );

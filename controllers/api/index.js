@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const artistRoutes = require("./artists/artistRoutes");
+const artistRoutes = require("./artists");
 const userRoutes = require("./userRoutes");
 
 //http://localhost:3001/api/artists
