@@ -15,5 +15,5 @@ const userRecordData = [
   { user_id: 12, record_id: 5 },
 ];
 
-const seedRecordData = () => Review.bulkCreate(userRecordData);
-module.exports = userRecordData;
+const seedRecordData = () => UserRecord.bulkCreate(userRecordData);
+module.exports = seedRecordData;
