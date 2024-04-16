@@ -58,14 +58,17 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// http://localhost:3001/artist
 router.get("/artist", (req, res) => {
   res.render("artist");
 });
 
+// http://localhost:3001/album
 router.get("/album", (req, res) => {
   res.render("album");
 });
 
+// http://localhost:3001/userpage
 router.get("/userpage", (req, res) => {
   res.render("userpage");
 });
