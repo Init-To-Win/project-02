@@ -3,6 +3,7 @@ const ForSale = require("./ForSale");
 const Record = require("./Record");
 const Review = require("./Review");
 const User = require("./User");
+const UserRecord = require("./UserRecord");
 
 Artist.hasMany(Record, {
   foreignKey: "artist_id",
