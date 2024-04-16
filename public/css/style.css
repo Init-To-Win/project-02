@@ -63,6 +63,7 @@ h4 {
   text-decoration: none;
 }
 
+#add-image,
 #login-button,
 #signup-button,
 label {
@@ -83,6 +84,7 @@ input {
   justify-content: center;
 }
 
+#add-image,
 #login-button,
 #signup-button {
   margin: 1rem;
@@ -130,4 +132,13 @@ input {
   .site-width {
     width: 60%;
   }
+}
+
+.collection {
+  font-family: "Platypi", sans-serif;
+  display: flex;
+  justify-content: center;
+  border: solid 1px;
+  margin: 5px;
+
 }
