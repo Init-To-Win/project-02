@@ -26,7 +26,12 @@ UserRecord.init(
       },
     },
   },
-  { sequelize, feezeTableName: true, modelName: "user_record" }
+  {
+    sequelize,
+    feezeTableName: true,
+    underscored: true,
+    modelName: "user_record",
+  }
 );
 
 module.exports = UserRecord;
