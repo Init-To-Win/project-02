@@ -46,12 +46,18 @@ ForSale.belongsTo(User, {
 });
 
 User.belongsToMany(Record, {
-  through: { model: UserRecord, foreignKey: "user_id" },
+  through: {
+    model: UserRecord,
+    foreignKey: "user_id",
+  },
   as: "user_records",
 });
 
 Record.belongsToMany(User, {
-  through: { model: UserRecord, foreignKey: "record_id" },
+  through: {
+    model: UserRecord,
+    foreignKey: "record_id",
+  },
   as: "record_users",
 });
 
