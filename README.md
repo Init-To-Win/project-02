@@ -37,10 +37,10 @@ To view the finished product, you will use the OS terminal to add necessary file
 ## Usage
 
 Landing page:
- ![alt text](image.png)
+![alt text](image.png)
 
 The webpage where a user may sign in to his/her account, or create an account:
- ![alt text](image-1.png)
+![alt text](image-1.png)
 
 Add an album to the collection:
 ![alt text](image-2.png)
@@ -55,8 +55,13 @@ Add artist page:
  ![alt text](image-5.png)
 
 User page:
- ![alt text](image-6.png)
+![alt text](image-6.png)
 
+
+## Links
+Deployed link: https://spin-me-round.onrender.com/
+
+Github Repo: https://github.com/Init-To-Win/spin-me-round.git
 
 
 ## Contributors
