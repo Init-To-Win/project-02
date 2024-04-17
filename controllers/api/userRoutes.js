@@ -117,11 +117,14 @@ router.post("/login", async (req, res) => {
 
 //http://localhost:3001/api/users/logout
 router.post("/logout", (req, res) => {
+  console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
+      console.log("destroyed");
       res.status(204).end();
     });
   } else {
+    console.log("not destroyed");
     res.status(404).end();
   }
 });

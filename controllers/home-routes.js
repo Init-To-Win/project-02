@@ -46,7 +46,10 @@ router.get("/addRecord", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("addAlbum");
+  res.render("addAlbum", {
+    loggedIn: req.session.loggedIn,
+    userId: req.session.userId,
+  });
 });
 
 //http://localhost:3001/login

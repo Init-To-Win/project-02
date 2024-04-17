@@ -10,7 +10,7 @@
   <div
     class="double-form border bs-border-color bg-opacity-10 rounded-1 shadow"
   >
-    <div class="add-album-form p-0 m-0">
+    <form class="add-album-form p-0 m-0" id="add-album-form">
       <div class="form-group mb-3 p-0 m-0">
         <label for="add-album-name">Album Name:</label>
         <input class="form-input" type="text" id="add-album-name" />
@@ -19,12 +19,18 @@
         <label for="add-album-year">Album Year:</label>
         <input class="form-input" type="text" id="add-album-year" />
       </div>
-      <select
+      <div class="form-group mb-3 p-0 m-0">
+        <label for="add-album-year">Artist</label>
+        <input class="form-input" type="text" id="add-artist" />
+      </div>
+
+      {{! <select
         class="form-select mb-3"
         style="border-color: black"
         aria-label="add-album-artist-name"
+        id="artist-selection"
       >
-        {{! NEED TO FIGURE OUT HOW TO MAKE THE CHOICES DYNAMIC - PULLED FROM ARTIST API }}
+         NEED TO FIGURE OUT HOW TO MAKE THE CHOICES DYNAMIC - PULLED FROM ARTIST API 
         <option selected>Artist Name</option>
         <option value="1">ABBA</option>
         <option value="2">Backstreet Boys</option>
@@ -38,7 +44,8 @@
         <option value="3">Lizzo</option>
         <option value="3">Peach Tree Rascals</option>
         <option value="3">Queen</option>
-      </select>
+      </select>}}
+
       <div class="mb-3">
         <label for="formFile" class="form-label">Upload an Album Image:</label>
         <input
@@ -53,7 +60,7 @@
           Add
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
-<script src="./js/login.js"></script>
+<script src="./js/addAlbum.js"></script>

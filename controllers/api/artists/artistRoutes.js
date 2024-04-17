@@ -23,19 +23,30 @@ router.get("/", async (req, res) => {
 //http://localhost:3001/api/artists/:id
 router.get("/:id", async (req, res) => {
   try {
-    const artistData = await Artist.findByPk(req.params.id, {
-      include: [
-        {
-          model: Record,
-        },
-      ],
-    });
+    const artistData = [
+      await Artist.findByPk(req.params.id, {
+        include: [
+          {
+            model: Record,
+          },
+        ],
+      }),
+    ];
     if (!artistData) {
       res.status(404).json({ message: "No artist found with that id!" });
       return;
     }
-    res.status(200).json(artistData);
+    // res.status(200).json(artistData);
+
+    const artists = artistData.map((artist) => artist.get({ plain: true }));
+    console.log(artists[0]);
+    res.render("artist", {
+      artists,
+      loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
+    });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -48,11 +59,12 @@ router.post("/", async (req, res) => {
       where: { name: req.body.name },
     });
     if (artistCheck) {
-      res.status(500).json({ message: "Artist already in database." });
+      res.status(200).json({ message: "Artist already in database." });
       return;
     }
     const artistData = await Artist.create({
       name: req.body.name,
+      bio: req.body.bio,
     });
     res.status(200).json(artistData);
   } catch (err) {
