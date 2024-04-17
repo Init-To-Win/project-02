@@ -41,14 +41,14 @@ router.get("/", async (req, res) => {
       return;
     }
 
-    const users = userData.map((user) => user.get({ plain: true }));
-    console.log(users[0].user_records);
-    res.render("userpage", {
-      users,
-      loggedIn: req.session.loggedIn,
-      userId: req.session.userId,
-    });
-    // res.status(200).json(userData);
+    // const users = userData.map((user) => user.get({ plain: true }));
+    // console.log(users[0].user_records);
+    // res.render("userpage", {
+    //   users,
+    //   loggedIn: req.session.loggedIn,
+    //   userId: req.session.userId,
+    // });
+    res.status(200).json(userData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -117,11 +117,14 @@ router.post("/login", async (req, res) => {
 
 //http://localhost:3001/api/users/logout
 router.post("/logout", (req, res) => {
+  console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
+      console.log("destroyed");
       res.status(204).end();
     });
   } else {
+    console.log("not destroyed");
     res.status(404).end();
   }
 });

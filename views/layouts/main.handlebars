@@ -63,7 +63,7 @@
               </li>
               {{#if loggedIn}}
                 <li class="nav-item">
-                  <a class="nav-link" href="/api/users">My Collection</a>
+                  <a class="nav-link" href="/userpage">My Collection</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/addArtist">Add an Artist</a>
@@ -72,7 +72,7 @@
                   <a class="nav-link" href="/addRecord">Add an Album</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/api/users/logout">Logout</a>
+                  <a class="nav-link" href="#" id="logout">Logout</a>
                 </li>
               {{else}}
                 <li class="nav-item">
@@ -105,6 +105,7 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/logout.js"></script>
   </body>
 
 </html>
