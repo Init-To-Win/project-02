@@ -1,6 +1,6 @@
 # Spin Me 'Round
 
-A marketplace for new and used records.
+A catalogue for your records, and a place to discover new favorites.
 
 ## Description
 
@@ -57,11 +57,15 @@ Artist page:
 User page:
 ![page showing a user's collection of albums](./assets/screenshots/user-page.png)
 
+## Deployed Link
+
+https://spin-me-round.onrender.com
+
 ## Contributors
 
-https://github.com/MelissaCade
-https://github.com/Meyerst19
-https://github.com/amartin02
+https://github.com/MelissaCade  
+https://github.com/Meyerst19  
+https://github.com/amartin02  
 https://github.com/vicduar
 
 ## Credits
