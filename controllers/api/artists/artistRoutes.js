@@ -36,15 +36,15 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "No artist found with that id!" });
       return;
     }
-    // res.status(200).json(artistData);
+    res.status(200).json(artistData);
 
-    const artists = artistData.map((artist) => artist.get({ plain: true }));
-    console.log(artists[0]);
-    res.render("artist", {
-      artists,
-      loggedIn: req.session.loggedIn,
-      userId: req.session.userId,
-    });
+    // const artists = artistData.map((artist) => artist.get({ plain: true }));
+    // console.log(artists[0]);
+    // res.render("artist", {
+    //   artists,
+    //   loggedIn: req.session.loggedIn,
+    //   userId: req.session.userId,
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

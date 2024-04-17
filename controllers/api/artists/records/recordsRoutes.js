@@ -34,14 +34,14 @@ router.get("/:id", async (req, res) => {
     if (!recordData) {
       res.status(404).json({ message: "No record found with that id!" });
     }
-    // res.status(200).json(recordData);
-    const records = recordData.map((record) => record.get({ plain: true }));
-    console.log(records[0]);
-    res.render("album", {
-      records,
-      loggedIn: req.session.loggedIn,
-      userId: req.session.userId,
-    });
+    res.status(200).json(recordData);
+    // const records = recordData.map((record) => record.get({ plain: true }));
+    // console.log(records[0]);
+    // res.render("album", {
+    //   records,
+    //   loggedIn: req.session.loggedIn,
+    //   userId: req.session.userId,
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
