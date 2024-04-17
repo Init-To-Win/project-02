@@ -37,17 +37,10 @@ To view the finished product, you will use the OS terminal to add necessary file
 ## Usage
 
 Landing page:
-<<<<<<< HEAD
 ![alt text](image.png)
 
 The webpage where a user may sign in to his/her account, or create an account:
 ![alt text](image-1.png)
-=======
-![page titled "Spin Me 'Round" with search bars and six random album covers](./assets/screenshots/landing-page.png)
-
-The webpage where a user may sign in to his/her account, or create an account:
-![page with login and sign-up forms](./assets/screenshots/login-page.png)
->>>>>>> 29896fcbba2d5e6ee325eba4ebb956366a6c83c1
 
 Add an album to the collection:
 ![page with a form to add an album to the database](./assets/screenshots/addAlbum-page.png)
@@ -62,7 +55,6 @@ Artist page:
 ![page showing an artist photo, brief bio, and albums from that artist](./assets/screenshots/artist-page.png)
 
 User page:
-<<<<<<< HEAD
 ![alt text](image-6.png)
 
 
@@ -71,9 +63,6 @@ Deployed link: https://spin-me-round.onrender.com/
 
 Github Repo: https://github.com/Init-To-Win/spin-me-round.git
 
-=======
-![page showing a user's collection of albums](./assets/screenshots/user-page.png)
->>>>>>> 29896fcbba2d5e6ee325eba4ebb956366a6c83c1
 
 ## Contributors
 
