@@ -1,149 +1,148 @@
-<div class="site-width mx-auto">
-  <div class="description">
-    <div
-      class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
-      id="description"
-    >
-      <h2><strong>ALBUM NAME</strong></h2>
+{{#each records}}
+  <div class="site-width mx-auto">
+    <div class="description">
+      <div
+        class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
+        id="description"
+      >
+        <h2><strong>{{name}}</strong></h2>
+      </div>
     </div>
-  </div>
-  <div class="searchbars row row-cols-lg-auto align-items-center">
-    <form class="d-flex searchfield col-12 col-lg-4" role="search">
-      <input
-        class="form-control me-2"
-        id="search-by-artist-input"
-        type="search"
-        placeholder="Search by Artist"
-        aria-label="Search by Artist"
-      />
-      <button
-        class="btn btn-outline-secondary"
-        id="search-by-artist-button"
-        type="submit"
-      >
-        Search
-      </button>
-    </form>
-    <form class="d-flex searchfield col-12 col-lg-4" role="search">
-      <input
-        class="form-control me-2"
-        id="search-by-album-input"
-        type="search"
-        placeholder="Search by Album"
-        aria-label="Search by Album"
-      />
-      <button
-        class="btn btn-outline-secondary"
-        id="search-by-album-button"
-        type="submit"
-      >
-        Search
-      </button>
-    </form>
-    <form class="d-flex searchfield col-12 col-lg-4" role="search">
-      <input
-        class="form-control me-2"
-        id="search-by-song-input"
-        type="search"
-        placeholder="Search by Song"
-        aria-label="Search by Song"
-      />
-      <button
-        class="btn btn-outline-secondary"
-        id="search-by-song-button"
-        type="submit"
-      >
-        Search
-      </button>
-    </form>
-  </div>
-  <div
-    class="container row artist-pic-bio-full p-0 ps-3 pe-3 m-0"
-    style="width: 100%; height: auto"
-  >
-    <div class="container col-12 col-sm-4 p-0 m-0">
-      <div class="container col-12 p-0 m-0 mb-3">
-        <div
-          class="card m-0 p-0 shadow"
-          style="height: fit-content"
-          id="album-cover"
+    <div class="searchbars row row-cols-lg-auto align-items-center">
+      <form class="d-flex searchfield col-12 col-lg-4" role="search">
+        <input
+          class="form-control me-2"
+          id="search-by-artist-input"
+          type="search"
+          placeholder="Search by Artist"
+          aria-label="Search by Artist"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          id="search-by-artist-button"
+          type="submit"
         >
-          <a href="#">
-            <img
-              src="../public/images/coverArt/_album-blank.jpg"
-              class="card-img"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="container col-12 p-0 m-0 mb-3">
-        <div
-          class="card m-0 p-0 shadow"
-          style="height: fit-content"
-          id="album-cover"
+          Search
+        </button>
+      </form>
+      <form class="d-flex searchfield col-12 col-lg-4" role="search">
+        <input
+          class="form-control me-2"
+          id="search-by-album-input"
+          type="search"
+          placeholder="Search by Album"
+          aria-label="Search by Album"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          id="search-by-album-button"
+          type="submit"
         >
-          <a href="#">
-            <img
-              src="../public/images/artistPhotos/_artist-blank.jpg"
-              class="card-img"
-            />
-            <h4>ARTIST NAME</h4>
-          </a>
-        </div>
-      </div>
+          Search
+        </button>
+      </form>
+      <form class="d-flex searchfield col-12 col-lg-4" role="search">
+        <input
+          class="form-control me-2"
+          id="search-by-song-input"
+          type="search"
+          placeholder="Search by Song"
+          aria-label="Search by Song"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          id="search-by-song-button"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
     </div>
-    <div class="container col-12 col-sm-8 p-3 m-0">
-      <h2 style="text-align: left"><strong>Track List:</strong></h2>
-      <h4>
-        <ol style="text-align: left">
-          <li>TRACK 1</li>
-          <li>TRACK 2</li>
-          <li>TRACK 3</li>
-          <li>TRACK 4</li>
-          <li>TRACK 5</li>
-          <li>TRACK 6</li>
-        </ol>
-      </h4>
-    </div>
-  </div>
-  <div
-    class="container p-0 ps-3 pe-3 m-0"
-    style="width: 100%; height: fit-content"
-  >
     <div
-      class="container album-review bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow mb-3 p-0 m-0"
-      style="width: 100%; height: fit-content"
+      class="container row artist-pic-bio-full p-0 ps-3 pe-3 m-0"
+      style="width: 100%; height: auto"
     >
-      <div class="container row p-0 m-0">
-        <div class="col-12 p-0 m-0">
-          <h4 id="review-username" style="text-align: left">
-            <strong>USERNAME</strong>
-          </h4>
+      <div class="container col-12 col-sm-4 p-0 m-0">
+        <div class="container col-12 p-0 m-0 mb-3">
+          <div
+            class="card m-0 p-0 shadow"
+            style="height: fit-content"
+            id="album-cover"
+          >
+            <a href="#">
+              <img src="./images/coverArt/{{cover_art}}" class="card-img" />
+            </a>
+          </div>
+        </div>
+        <div class="container col-12 p-0 m-0 mb-3">
+          <div
+            class="card m-0 p-0 shadow"
+            style="height: fit-content"
+            id="album-cover"
+          >
+            <a href="/artist/{{artist.id}}">
+              <img
+                src="`./images/artistPhotos/{{artist.image}}`"
+                class="card-img"
+              />
+              <h4>{{artist.name}}</h4>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="container p-0 m-0" style="height: fit-content">
-        <h4 style="text-align: left" id="album-review">
-          REVIEW REVIEW BLAH BLAH BLAH
+      <div class="container col-12 col-sm-8 p-3 m-0">
+        <h2 style="text-align: left"><strong>Track List:</strong></h2>
+        <h4>
+          <ol style="text-align: left">
+            <li>TRACK 1</li>
+            <li>TRACK 2</li>
+            <li>TRACK 3</li>
+            <li>TRACK 4</li>
+            <li>TRACK 5</li>
+            <li>TRACK 6</li>
+          </ol>
         </h4>
       </div>
     </div>
-  </div>
-  <div class="container ps-3 pe-3 mb-3">
-    <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
-      <h2 class="p-1">Leave a review!</h2>
-      <div class="col-12">
-        <label for="exampleFormControlTextarea1" class="form-label"></label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
+    <div
+      class="container p-0 ps-3 pe-3 m-0"
+      style="width: 100%; height: fit-content"
+    >
+      <div
+        class="container album-review bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow mb-3 p-0 m-0"
+        style="width: 100%; height: fit-content"
+      >
+        <div class="container row p-0 m-0">
+          <div class="col-12 p-0 m-0">
+            <h4 id="review-username" style="text-align: left">
+              <strong>USERNAME</strong>
+            </h4>
+          </div>
+        </div>
+        <div class="container p-0 m-0" style="height: fit-content">
+          <h4 style="text-align: left" id="album-review">
+            REVIEW REVIEW BLAH BLAH BLAH
+          </h4>
+        </div>
       </div>
-      <div class="form-group login-form-centered">
-        <button class="btn btn-secondary" type="submit" id="comment-button">
-          Submit
-        </button>
+    </div>
+    <div class="container ps-3 pe-3 mb-3">
+      <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
+        <h2 class="p-1">Leave a review!</h2>
+        <div class="col-12">
+          <label for="exampleFormControlTextarea1" class="form-label"></label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-group login-form-centered">
+          <button class="btn btn-secondary" type="submit" id="comment-button">
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{{/each}}
