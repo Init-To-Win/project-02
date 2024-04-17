@@ -85,6 +85,7 @@ router.get("/artist/:id", async (req, res) => {
       loggedIn: req.session.loggedIn,
       userId: req.session.userId,
     });
+    console.log(artists);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -114,6 +115,7 @@ router.get("/album/:id", async (req, res) => {
       loggedIn: req.session.loggedIn,
       userId: req.session.userId,
     });
+    console.log(records);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
