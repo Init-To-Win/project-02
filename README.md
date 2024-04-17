@@ -1,6 +1,6 @@
 # Spin Me 'Round
 
-A marketplace for new and used records.
+A catalogue for your records, and a place to discover new favorites.
 
 ## Description
 
@@ -64,11 +64,15 @@ Deployed link: https://spin-me-round.onrender.com/
 Github Repo: https://github.com/Init-To-Win/spin-me-round.git
 
 
+## Deployed Link
+
+https://spin-me-round.onrender.com
+
 ## Contributors
 
-https://github.com/MelissaCade
-https://github.com/Meyerst19
-https://github.com/amartin02
+https://github.com/MelissaCade  
+https://github.com/Meyerst19  
+https://github.com/amartin02  
 https://github.com/vicduar
 
 ## Credits
