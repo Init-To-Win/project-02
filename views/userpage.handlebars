@@ -1,10 +1,11 @@
-<div class="site-width mx-auto">
+     {{#each users}}
+      <div class="site-width mx-auto">
         <div class="description">
           <div
             class="container bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow"
             id="description"
           >
-            <h2><strong>Your Collection</strong></h2>
+            <h2><strong>Your Collection {{user_name}}</strong></h2>
           </div>
         </div>
         <div class="searchbars row row-cols-lg-auto align-items-center mb-3">
@@ -66,66 +67,27 @@
               class="container row col-12 p-0 m-0"
               style="height: auto"
             >
+            {{#each user_records}}
               <div class="container col-6 col-sm-3 ps-3 p-0 m-0 mb-3">
               <div
                 class="card m-0 p-0 shadow"
                 style="height: fit-content" id="album-cover"
               >
-                <a href="#"
+                <a href=`/album/{{id}}`
                   ><img
-                    src="../public/images/coverArt/_album-blank.jpg"
+                    src=`../public/images/coverArt/{{cover_art}}`
                     class="card-img"
                   />
-                  <h4 class="pb-0">ARTIST NAME</h4>
-                  <h4>ALBUM NAME</h4>
+                  <h4 class="pb-0">{{artist.name}}E</h4>
+                  <h4>{{name}}</h4>
                 </a>
               </div>
             </div>
-            <div class="container col-6 col-sm-3 ps-3 p-0 m-0 mb-3">
-              <div
-                class="card m-0 p-0 shadow"
-                style="height: fit-content" id="album-cover"
-              >
-                <a href="#"
-                  ><img
-                    src="../public/images/coverArt/_album-blank.jpg"
-                    class="card-img"
-                  />
-                  <h4 class="pb-0">ARTIST NAME</h4>
-                  <h4>ALBUM NAME</h4>
-                </a>
-              </div>              
-            </div>
-            <div class="container col-6 col-sm-3 ps-3 p-0 m-0 mb-3">
-              <div
-                class="card m-0 p-0 shadow"
-                style="height: fit-content" id="album-cover"
-              >
-                <a href="#"
-                  ><img
-                    src="../public/images/coverArt/_album-blank.jpg"
-                    class="card-img"
-                  />
-                  <h4 class="pb-0">ARTIST NAME</h4>
-                  <h4>ALBUM NAME</h4>
-                </a>
-              </div>              
-            </div>
-            <div class="container col-6 col-sm-3 ps-3 p-0 m-0 mb-3">
-              <div
-                class="card m-0 p-0 shadow"
-                style="height: fit-content" id="album-cover"
-              >
-                <a href="#"
-                  ><img
-                    src="../public/images/coverArt/_album-blank.jpg"
-                    class="card-img"
-                  />
-                  <h4 class="pb-0">ARTIST NAME</h4>
-                  <h4>ALBUM NAME</h4>
-                </a>
-              </div>              
-            </div>
+            {{/each}}
+          
+            
+            
             
         </div>
       </div>
+    {{/each}}
