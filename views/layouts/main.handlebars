@@ -59,20 +59,26 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">My Collection</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login/Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Add an Artist</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Add an Album</a>
-              </li>
+              {{#if loggedIn}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/api/users">My Collection</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/addArtist">Add an Artist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/addRecord">Add an Album</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/api/users/logout">Logout</a>
+                </li>
+              {{else}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login/Signup</a>
+                </li>
+              {{/if}}
             </ul>
           </div>
         </div>

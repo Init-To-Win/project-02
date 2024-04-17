@@ -7,8 +7,8 @@
         <strong>Please sign in or create an account.</strong>
       </h2>
     </div>
-        <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
-          <div class="login-form">
+        <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow form">
+          <form class="login-form" id="login-form" >
             <div class="form-group">
                 <label for="email-login">Email:</label>
                 <input class="form-input" type="text" id="email-login" />
@@ -22,11 +22,11 @@
                 Login
               </button>
             </div>
-          </div>
+          </form>
           <div class="login-or login-form-centered">
             <h4>~ OR ~</h4>
           </div>
-          <div class="signup-form">
+          <form class="signup-form" id="signup-form">
             <div class="form-group">
                 <label for="username-signup">Username:</label>
                 <input class="form-input" type="text" id="username-signup" />
@@ -44,6 +44,6 @@
                 Create Account
               </button>
             </div>
-        </div>
+        </form>
       </div>
       <script src="./js/login.js"></script>
