@@ -22,17 +22,26 @@ router.get("/", async (req, res) => {
 //http://localhost:3001/api/artists/records/:id
 router.get("/:id", async (req, res) => {
   try {
-    const recordData = await Record.findByPk(req.params.id, {
-      include: [
-        {
-          model: Artist,
-        },
-      ],
-    });
+    const recordData = [
+      await Record.findByPk(req.params.id, {
+        include: [
+          {
+            model: Artist,
+          },
+        ],
+      }),
+    ];
     if (!recordData) {
       res.status(404).json({ message: "No record found with that id!" });
     }
     res.status(200).json(recordData);
+    // const records = recordData.map((record) => record.get({ plain: true }));
+    // console.log(records[0]);
+    // res.render("album", {
+    //   records,
+    //   loggedIn: req.session.loggedIn,
+    //   userId: req.session.userId,
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -60,6 +69,28 @@ router.post("/", (req, res) => {
     });
 });
 
+//http://localhost:3001/api/artists/records
+router.post("/user", async (req, res) => {
+  try {
+    console.log(req.body.artist);
+    const artistId = await Artist.findOne({ where: { name: req.body.artist } });
+    console.log(artistId);
+    const recordData = await Record.create({
+      name: req.body.name,
+      year: req.body.year,
+      artist_id: artistId.id,
+    });
+    console.log(recordData);
+    const userRecordData = await UserRecord.create({
+      user_id: req.session.userId,
+      record_id: recordData.id,
+    });
+    res.status(200).json(userRecordData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 //http://localhost:3001/api/artists/records/:id
 router.put("/:id", (req, res) => {
   Record.update(req.body, {

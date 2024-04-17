@@ -2,42 +2,55 @@ const router = require("express").Router();
 const { User, Artist, UserRecord, Record } = require("../../models");
 
 //http://localhost:3001/api/users
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       include: [
+//         {
+//           model: Record,
+//           through: UserRecord,
+//           as: "user_records",
+//         },
+//       ],
+//     });
+
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+//http://localhost:3001/api/users
 router.get("/", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      include: [
-        {
-          model: Record,
-          through: UserRecord,
-          as: "user_records",
-        },
-      ],
-    });
-
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//http://localhost:3001/api/users/:id
-router.get("/:id", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Record,
-          through: UserRecord,
-          as: "user_records",
-        },
-      ],
-    });
+    const userData = [
+      await User.findByPk(req.session.userId, {
+        include: [
+          {
+            model: Record,
+            through: UserRecord,
+            as: "user_records",
+            include: [{ model: Artist }],
+          },
+        ],
+      }),
+    ];
+    console.log(`*************${req.session.userId}****************`);
     if (!userData) {
       res.status(404).json({ message: "No user found with that id!" });
       return;
     }
+
+    // const users = userData.map((user) => user.get({ plain: true }));
+    // console.log(users[0].user_records);
+    // res.render("userpage", {
+    //   users,
+    //   loggedIn: req.session.loggedIn,
+    //   userId: req.session.userId,
+    // });
     res.status(200).json(userData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -46,13 +59,13 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
-      user_name: req.body.user_name,
+      user_name: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user_name = req.body.user_name;
+      req.session.userId = userData.id;
 
       res.status(200).json(userData);
     });
@@ -66,7 +79,7 @@ router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        user_name: req.body.user_name,
+        email: req.body.email,
       },
     });
 
@@ -88,25 +101,30 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      res.session.loggedIn = true;
       //   res.session.user_name = req.body.user_name;
+      req.session.loggedIn = true;
+      req.session.userId = userData.id;
 
       res
         .status(200)
         .json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
 //http://localhost:3001/api/users/logout
 router.post("/logout", (req, res) => {
+  console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
+      console.log("destroyed");
       res.status(204).end();
     });
   } else {
+    console.log("not destroyed");
     res.status(404).end();
   }
 });

@@ -59,20 +59,26 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">My Collection</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login/Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Add an Artist</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Add an Album</a>
-              </li>
+              {{#if loggedIn}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/userpage">My Collection</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/addArtist">Add an Artist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/addRecord">Add an Album</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+              {{else}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login/Signup</a>
+                </li>
+              {{/if}}
             </ul>
           </div>
         </div>
@@ -99,6 +105,7 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/logout.js"></script>
   </body>
 
 </html>
