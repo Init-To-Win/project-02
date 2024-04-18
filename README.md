@@ -68,6 +68,10 @@ Github Repo: https://github.com/Init-To-Win/spin-me-round.git
 
 https://spin-me-round.onrender.com
 
+## Deployed Link
+
+https://spin-me-round.onrender.com
+
 ## Contributors
 
 https://github.com/MelissaCade  
