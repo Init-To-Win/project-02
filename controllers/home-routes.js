@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Record, Artist, User, UserRecord } = require("../models");
+const { Record, Artist, User, UserRecord, Review } = require("../models");
 
 //http://localhost:3001
 router.get("/", async (req, res) => {
@@ -101,6 +101,14 @@ router.get("/album/:id", async (req, res) => {
           {
             model: Artist,
           },
+          {
+            model: Review,
+            include: [
+              {
+                model: User,
+              },
+            ],
+          },
         ],
       }),
     ];
@@ -109,13 +117,12 @@ router.get("/album/:id", async (req, res) => {
     }
 
     const records = recordData.map((record) => record.get({ plain: true }));
-    console.log(records[0]);
+    console.log(records[0].reviews);
     res.render("album", {
       records,
       loggedIn: req.session.loggedIn,
       userId: req.session.userId,
     });
-    console.log(records);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
