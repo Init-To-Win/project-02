@@ -34,6 +34,7 @@ Review.init(
     stars: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 4,
     },
   },
   {

@@ -70,7 +70,7 @@
             id="album-cover"
           >
             <a href="#">
-              <img src="./images/coverArt/{{cover_art}}" class="card-img" />
+              <img src="/images/coverArt/{{cover_art}}" class="card-img" />
             </a>
           </div>
         </div>
@@ -82,7 +82,7 @@
           >
             <a href="/artist/{{artist.id}}">
               <img
-                src="./images/artistPhotos/{{artist.image}}"
+                src="/images/artistPhotos/{{artist.image}}"
                 class="card-img"
               />
               <h4>{{artist.name}}</h4>
@@ -108,41 +108,45 @@
       class="container p-0 ps-3 pe-3 m-0"
       style="width: 100%; height: fit-content"
     >
-      <div
-        class="container album-review bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow mb-3 p-0 m-0"
-        style="width: 100%; height: fit-content"
-      >
-        <div class="container row p-0 m-0">
-          <div class="col-12 p-0 m-0">
-            <h4 id="review-username" style="text-align: left">
-              <strong>USERNAME</strong>
+      {{#each reviews}}
+        <div
+          class="container album-review bd-gutter border bs-border-color bg-opacity-10 rounded-1 shadow mb-3 p-0 m-0"
+          style="width: 100%; height: fit-content"
+        >
+          <div class="container row p-0 m-0">
+            <div class="col-12 p-0 m-0">
+              <h4 id="review-username" style="text-align: left">
+                <strong>{{user.user_name}}</strong>
+              </h4>
+            </div>
+          </div>
+          <div class="container p-0 m-0" style="height: fit-content">
+            <h4 style="text-align: left" id="album-review">
+              {{review_content}}
             </h4>
           </div>
         </div>
-        <div class="container p-0 m-0" style="height: fit-content">
-          <h4 style="text-align: left" id="album-review">
-            REVIEW REVIEW BLAH BLAH BLAH
-          </h4>
-        </div>
-      </div>
+      {{/each}}
     </div>
     <div class="container ps-3 pe-3 mb-3">
-      <div class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
+      <form class="double-form bs-border-color bg-opacity-10 rounded-1 shadow">
         <h2 class="p-1">Leave a review!</h2>
         <div class="col-12">
-          <label for="exampleFormControlTextarea1" class="form-label"></label>
+          <label for="review-content" class="form-label"></label>
           <textarea
             class="form-control"
-            id="exampleFormControlTextarea1"
+            id="review-content"
             rows="3"
           ></textarea>
         </div>
         <div class="form-group login-form-centered">
-          <button class="btn btn-secondary" type="submit" id="comment-button">
+          <button class="btn btn-secondary" id="comment-button">
             Submit
           </button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 {{/each}}
+
+<script src="/js/album.js"></script>
